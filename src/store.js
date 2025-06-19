@@ -1,4 +1,6 @@
-// store.js
+import { useContext, createContext, useReducer } from "react";
+
+const Context = createContext(null);
 
 export const initialStore = () => ({
   people: [],

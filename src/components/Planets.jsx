@@ -50,14 +50,13 @@ const Planets = () => {
   }
 
   return (
-    <div className="d-flex flex-wrap justify-content-center">
+    <div 
+    className="d-flex flex-nowrap overflow-auto px-3"
+    style={{ gap: "1rem", scrollBehavior: "smooth" }}
+    >
       {details.map((planet) => (
-        <div key={planet.uid} className="card m-3" style={{ width: "18rem" }}>
-          <img
-            src={`https://starwars-visualguide.com/assets/img/planets/${planet.uid}.jpg`}
-            className="card-img-top"
-            alt={planet.name}
-          />
+        <div key={planet.uid} className="card m-3" style={{ minWidth: "18rem" }}>
+         
           <div className="card-body">
             <h5 className="card-title">{planet.name}</h5>
             <p className="card-text">

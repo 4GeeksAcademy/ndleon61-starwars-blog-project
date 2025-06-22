@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import useGlobalReducer from '../hooks/useGlobalReducer';
+import "../styles/PeopleList.css"
 
 const People = () => {
   const { store, dispatch } = useGlobalReducer();
@@ -50,11 +51,11 @@ const People = () => {
 
   return (
   <div
-    className="d-flex flex-nowrap overflow-auto px-3"
-    style={{ gap: "1rem", scrollBehavior: "smooth" }}
+    className="d-flex flex-nowrap overflow-auto px-3 people-container"
+    style={{ gap: "2rem", scrollBehavior: "smooth" }}
   >
     {details.map((person) => (
-      <div key={person.uid} className="card" style={{ minWidth: "18rem" }}>
+      <div key={person.uid} className="card" id='people' style={{ minWidth: "18rem" }}>
         <div className="card-body">
           <h5 className="card-title">{person.name}</h5>
           <p className="card-text">
@@ -62,11 +63,11 @@ const People = () => {
             <strong>Birth Year:</strong> {person.birth_year}<br />
             <strong>Height:</strong> {person.height}
           </p>
-          <div className="card-footer d-flex justify-content-between">
+        </div>
+         <div className="card-footer d-flex justify-content-between">
             <a href="#" className="btn btn-primary">Learn More</a>
             <i className="fa-regular fa-star"></i>
           </div>
-        </div>
       </div>
     ))}
   </div>

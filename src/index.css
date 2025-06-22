@@ -1,0 +1,9 @@
+html body {
+    margin: 0;
+    padding: 0;
+    background-image: url(https://images4.alphacoders.com/743/743797.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    font-family: "Cutive";
+}

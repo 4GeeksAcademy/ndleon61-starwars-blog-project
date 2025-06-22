@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer";
+import '../styles/VehicleList.css';
 
 const Vehicles = () => {
     const {store, dispatch} = useGlobalReducer();
@@ -62,7 +63,7 @@ const Vehicles = () => {
     style={{ gap: "1rem", scrollBehavior: "smooth" }}
   >
     {details.map((vehicle) => (
-      <div key={vehicle.uid} className="card" style={{ minWidth: "18rem" }}>
+      <div key={vehicle.uid} className="card" id="vehicles" style={{ minWidth: "18rem" }}>
         <div className="card-body">
           <h5 className="card-title">{vehicle.name}</h5>
           <p className="card-text">
@@ -70,11 +71,11 @@ const Vehicles = () => {
             <strong>Cargo Capacity:</strong> {vehicle.cargo_capacity}<br />
             <strong>Class:</strong> {vehicle.vehicle_class}
           </p>
-          <div className="card-footer d-flex justify-content-between">
+        </div>
+        <div className="card-footer d-flex justify-content-between">
             <a href="#" className="btn btn-primary">Learn More</a>
             <i className="fa-regular fa-star"></i>
           </div>
-        </div>
       </div>
     ))}
   </div>

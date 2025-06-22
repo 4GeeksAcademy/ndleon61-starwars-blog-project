@@ -1,10 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import useGlobalReducer from '../hooks/useGlobalReducer';
+import "../styles/PlanetList.css";
 
 const Planets = () => {
   const { store, dispatch } = useGlobalReducer();
   const planets = store.planets;
   const [details, setDetails] = useState([]);
+  const getPlanetColor = (climate) => {
+   const c = climate.toLowerCase();
+  if (c.includes("frozen")) return "planet-bg-frozen";
+  if (c.includes("arid")) return "planet-bg-arid";
+  if (c.includes("tropical")) return "planet-bg-tropical";
+  if (c.includes("temperate")) return "planet-bg-temperate";
+  if (c.includes("murky")) return "planet-bg-murky";
+  return "planet-bg-default"; 
+};
 
   
   useEffect(() => {
@@ -55,7 +65,8 @@ const Planets = () => {
     style={{ gap: "1rem", scrollBehavior: "smooth" }}
     >
       {details.map((planet) => (
-        <div key={planet.uid} className="card m-3" style={{ minWidth: "18rem" }}>
+        <div>
+          <div key={planet.uid} className="card m-3" id='planets' style={{ minWidth: "18rem", background: getPlanetColor(planet.climate) }}>
          
           <div className="card-body">
             <h5 className="card-title">{planet.name}</h5>
@@ -64,12 +75,16 @@ const Planets = () => {
               <strong>Terrain:</strong> {planet.terrain}<br />
               <strong>Population:</strong> {planet.population}
             </p>
-            <div className="card-footer footer d-flex justify-content-between">
+          </div>
+          
+        </div>
+          <div className="card-footer" id='planet'>
               <a href="#" className="btn btn-primary">Learn More</a>
               <i className="fa-regular fa-star"></i>
             </div>
-          </div>
         </div>
+        
+        
       ))}
     </div>
   );

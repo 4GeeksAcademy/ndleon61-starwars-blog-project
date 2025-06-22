@@ -1,16 +1,17 @@
 import { Link } from "react-router-dom";
+import "../styles/Navbar.css"
 
 export const Navbar = () => {
 
 	return (
-		<nav className="navbar navbar-light bg-light">
+		<nav className="navbar navbar-light">
 			<div className="container">
-				<Link to="/">
-					<span className="navbar-brand mb-0 h1">Starwar Image</span>
+				<Link to="/" id="home-link">
+					<img src="https://pngimg.com/d/star_wars_logo_PNG34.png" alt=""className="navbar-brand mb-0 h1" id="navbar-image"/> Blog
 				</Link>
 				<div className="ml-auto">
 					<li className="nav-item dropdown">
-						<button className="btn btn-primary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<button className="btn btn-warning dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 							Favorites
 						</button>
 						<ul className="dropdown-menu">

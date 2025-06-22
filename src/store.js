@@ -21,9 +21,19 @@ export default function storeReducer(store, action = {}) {
     case "set_planets":
       return { ...store, planets: action.payload };
 
-    case "add_favorite":
-      if (store.favorites.includes(action.payload)) return store;
-      return { ...store, favorites: [...store.favorites, action.payload] };
+    case "toggle_favorite":
+  const exists = store.favorites.some(
+    fav => fav.uid === action.payload.uid && fav.type === action.payload.type
+  );
+
+  return {
+    ...store,
+    favorites: exists
+      ? store.favorites.filter(
+          fav => !(fav.uid === action.payload.uid && fav.type === action.payload.type)
+        )
+      : [...store.favorites, action.payload]
+  };
 
     case "remove_favorite":
       return {

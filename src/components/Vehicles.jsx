@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useGlobalReducer from "../hooks/useGlobalReducer";
+import { Link } from "react-router-dom";
 import '../styles/VehicleList.css';
 
 const Vehicles = () => {
@@ -73,8 +74,18 @@ const Vehicles = () => {
           </p>
         </div>
         <div className="card-footer d-flex justify-content-between">
-            <a href="#" className="btn btn-primary">Learn More</a>
-            <i className="fa-regular fa-star"></i>
+            <Link to={`/vehicle/${vehicle.uid}`} className="btn btn-primary">Learn More</Link>
+            <i
+              className={`fa-${store.favorites.some(f => f.uid === vehicle.uid && f.type === "vehicle") ? "solid" : "regular"} fa-star`}
+              onClick={() => dispatch({
+                type: "toggle_favorite",
+                payload: {
+                  uid: vehicle.uid,
+                  name: vehicle.name,
+                  type: "vehicle"
+                }
+              })}
+            />
           </div>
       </div>
     ))}

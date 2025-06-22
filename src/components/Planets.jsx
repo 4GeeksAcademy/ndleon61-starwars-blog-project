@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import useGlobalReducer from '../hooks/useGlobalReducer';
+import { Link } from "react-router-dom";
 import "../styles/PlanetList.css";
 
 const Planets = () => {
@@ -65,8 +66,8 @@ const Planets = () => {
     style={{ gap: "1rem", scrollBehavior: "smooth" }}
     >
       {details.map((planet) => (
-        <div>
-          <div key={planet.uid} className={`card m-3 ${getPlanetColor(planet.climate)}`} id='planets' style={{ minWidth: "18rem" }}>
+        <div key={planet.uid} >
+          <div className={`card m-3 ${getPlanetColor(planet.climate)}`} id='planets' style={{ minWidth: "18rem" }}>
          
           <div className="card-body">
             <h5 className="card-title">{planet.name}</h5>
@@ -79,8 +80,21 @@ const Planets = () => {
           
         </div>
           <div className="card-footer" id='planet'>
-              <a href="#" className="btn btn-primary">Learn More</a>
-              <i className="fa-regular fa-star"></i>
+              <Link to={`/planet/${planet.uid}`} className="btn btn-primary">
+                Learn More
+              </Link>
+              <i
+                className={`fa-${store.favorites.some(f => f.uid === planet.uid && f.type === "planet") ? "solid" : "regular"} fa-star`}
+                style={{ cursor: "pointer", color: "gold", fontSize: "1.25rem" }}
+                onClick={() => dispatch({
+                  type: "toggle_favorite",
+                  payload: {
+                    uid: planet.uid,
+                    name: planet.name,
+                    type: "planet"
+                  }
+                })}
+              />
             </div>
         </div>
         

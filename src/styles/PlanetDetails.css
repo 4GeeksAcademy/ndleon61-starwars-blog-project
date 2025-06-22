@@ -1,0 +1,58 @@
+/* Container styling */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.25);
+  color: #fff;
+  background-image: linear-gradient(to right top, #0f2027, #203a43, #2c5364);
+}
+
+/* Heading */
+.container h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00ffff;
+  margin-bottom: 1rem;
+}
+
+/* Back Button */
+.container .btn {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  transition: background-color 0.3s ease;
+}
+
+.container .btn:hover {
+  background-color: #0056b3;
+}
+
+/* List styling */
+.list-group {
+  background-color: transparent;
+  border-radius: 10px;
+  padding: 0;
+}
+
+.list-group-item {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: none;
+  color: #e0e0e0;
+  font-size: 1rem;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.list-group-item:last-child {
+  border-bottom: none;
+}
+
+/* Strong label styling */
+.list-group-item strong {
+  color: #ffffff;
+  margin-right: 8px;
+}

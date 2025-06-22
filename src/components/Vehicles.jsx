@@ -59,11 +59,11 @@ const Vehicles = () => {
 
   return (
      <div
-    className="d-flex flex-nowrap overflow-auto px-3"
-    style={{ gap: "1rem", scrollBehavior: "smooth" }}
+    className="d-flex flex-nowrap overflow-auto px-3 vehicle-container"
+    style={{ gap: "2rem", scrollBehavior: "smooth" }}
   >
     {details.map((vehicle) => (
-      <div key={vehicle.uid} className="card" id="vehicles" style={{ minWidth: "18rem" }}>
+      <div key={vehicle.uid} className="card" id="vehicle" style={{ minWidth: "18rem" }}>
         <div className="card-body">
           <h5 className="card-title">{vehicle.name}</h5>
           <p className="card-text">

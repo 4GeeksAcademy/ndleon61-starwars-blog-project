@@ -66,7 +66,7 @@ const Planets = () => {
     >
       {details.map((planet) => (
         <div>
-          <div key={planet.uid} className="card m-3" id='planets' style={{ minWidth: "18rem", background: getPlanetColor(planet.climate) }}>
+          <div key={planet.uid} className={`card m-3 ${getPlanetColor(planet.climate)}`} id='planets' style={{ minWidth: "18rem" }}>
          
           <div className="card-body">
             <h5 className="card-title">{planet.name}</h5>
